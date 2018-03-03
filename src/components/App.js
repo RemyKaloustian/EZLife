@@ -12,6 +12,7 @@ import ListDisplayer from './ListDisplayer';
 import LoginView from '../views/LoginView';
 import Board from '../views/Board';
 import SettingsView from '../views/SettingsView';
+import DetailsView from '../views/DetailsView';
 
 const store = createStore(reducer);
 
@@ -23,7 +24,9 @@ const App = () => {
         <div>
           <Route path="/login" component={LoginView}></Route>
           <Route path="/board" component={Board}></Route>  
-          <Route path="/settings" component={SettingsView}></Route>        
+          <Route path="/settings" component={SettingsView}></Route>
+          <Route path="/details" component={DetailsView}></Route>
+          
         </div>
         </HashRouter>
   </Provider>);
