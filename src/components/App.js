@@ -9,6 +9,7 @@ import Counter from './Counter';
 import AddCounter from './AddCounter';
 import RemoveCounter from './RemoveCounter';
 import ListDisplayer from './ListDisplayer';
+import LoginView from '../views/LoginView';
 
 const store = createStore(reducer);
 
@@ -18,7 +19,7 @@ const App = () => {
   <Provider store={store}>
         <HashRouter history={browserHistory}>
         <div>
-          <Route path="/home" component={AddCounter}></Route>
+          <Route path="/login" component={LoginView}></Route>
           <Route path="/rem" component={RemoveCounter}></Route>  
           <Route path="/l" component={ListDisplayer}></Route>        
         </div>
