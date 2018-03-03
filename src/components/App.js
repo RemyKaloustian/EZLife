@@ -24,10 +24,10 @@ const App = () => {
         <HashRouter history={browserHistory}>
         <div>
           <Route path="/login" component={LoginView}></Route>
-          <Route path="/board" component={Board}></Route>  
-          <Route path="/settings" component={SettingsView}></Route>
-          <Route path="/details" component={DetailsView}></Route>
-          <Route path="/new" component={NewNoteView}></Route>
+          <Route path="/board/:user" component={Board}></Route>  
+          <Route path="/settings/:user" component={SettingsView}></Route>
+          <Route path="/details/:note" component={DetailsView}></Route>
+          <Route path="/new/:note" component={NewNoteView}></Route>
           
         </div>
         </HashRouter>
