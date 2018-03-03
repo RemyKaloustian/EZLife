@@ -10,6 +10,7 @@ import AddCounter from './AddCounter';
 import RemoveCounter from './RemoveCounter';
 import ListDisplayer from './ListDisplayer';
 import LoginView from '../views/LoginView';
+import Board from '../views/Board';
 
 const store = createStore(reducer);
 
@@ -20,7 +21,7 @@ const App = () => {
         <HashRouter history={browserHistory}>
         <div>
           <Route path="/login" component={LoginView}></Route>
-          <Route path="/rem" component={RemoveCounter}></Route>  
+          <Route path="/board" component={Board}></Route>  
           <Route path="/l" component={ListDisplayer}></Route>        
         </div>
         </HashRouter>

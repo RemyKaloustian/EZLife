@@ -8,6 +8,8 @@ render(){
         <div>
             <h3>Login view</h3>
             <input placeholder="type your login" />
+            <br/>
+            <button>Go on !</button>
         </div>
     );
 }
