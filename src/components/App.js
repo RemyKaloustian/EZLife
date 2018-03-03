@@ -13,6 +13,7 @@ import LoginView from '../views/LoginView';
 import Board from '../views/Board';
 import SettingsView from '../views/SettingsView';
 import DetailsView from '../views/DetailsView';
+import NewNoteView from '../views/NewNoteView';
 
 const store = createStore(reducer);
 
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/board" component={Board}></Route>  
           <Route path="/settings" component={SettingsView}></Route>
           <Route path="/details" component={DetailsView}></Route>
+          <Route path="/new" component={NewNoteView}></Route>
           
         </div>
         </HashRouter>
