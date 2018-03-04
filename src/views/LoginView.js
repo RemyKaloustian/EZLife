@@ -19,7 +19,7 @@ render(){
             <h3>Login view</h3>
             <input placeholder='type your login' onChange={(e) => {this.handleChange(e)}} ref= {(input)=> this.logInput = input}/>
             <br/>
-            <Link to='/board/ee'>
+            <Link to={`/board/${this.state.login}`}>
                 <button disabled = {!this.state.login}>Go on !</button>
             </Link>
         </div>
