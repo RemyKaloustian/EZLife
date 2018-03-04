@@ -11,7 +11,7 @@ class Board extends Component{
                 <p>List of tasks</p>
                 {
                     this.props.notes.map((item,index) => 
-                        <p key={index}>{item}</p>
+                        <p key={index}>{item.name}</p>
                     )
                 }
             </div>

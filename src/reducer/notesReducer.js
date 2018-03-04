@@ -1,6 +1,12 @@
 import * as actionType from '../actions/ActionType';
 
-const notesReducer = (state = ['note1','note2','note3'], action) => {
+const initialNotes = [
+    {name:'Be awesome'},
+    {name:'Be phenomenal'},
+    {name:'Be the greatest'}
+];
+
+const notesReducer = (state = initialNotes, action) => {
   return state;
 }
 
