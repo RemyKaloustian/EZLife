@@ -17,20 +17,20 @@ import NewNoteView from '../views/NewNoteView';
 
 const store = createStore(reducer);
 
-const App = () => {
+export const App = () => {
  return(
 
   <Provider store={store}>
         <HashRouter history={browserHistory}>
         <div>
-          <Route path="/" component={LoginView}></Route>
-          <Route path="/board/:user" component={Board}></Route>  
-          <Route path="/settings/:user" component={SettingsView}></Route>
-          <Route path="/details/:note" component={DetailsView}></Route>
-          <Route path="/new/:note" component={NewNoteView}></Route>
-          
-        </div>
+            <Route path="/login" component={LoginView}> </Route>
+            <Route path="/board/:user" component={Board}></Route>  
+            <Route path="/settings/:user" component={SettingsView}></Route>
+            <Route path="/details/:note" component={DetailsView}></Route>
+            <Route path="/new/:note" component={NewNoteView}></Route>
+          </div>
         </HashRouter>
+        
   </Provider>);
 }
 export default App;

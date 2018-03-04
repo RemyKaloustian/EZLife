@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Link from 'react-router-dom/Link';
 
 
 class LoginView extends Component{
@@ -16,9 +17,11 @@ render(){
     return(
         <div>
             <h3>Login view</h3>
-            <input placeholder="type your login" onChange={(e) => {this.handleChange(e)}} ref= {(input)=> this.logInput = input}/>
+            <input placeholder='type your login' onChange={(e) => {this.handleChange(e)}} ref= {(input)=> this.logInput = input}/>
             <br/>
-            <button disabled = {!this.state.login}>Go on !</button>
+            <Link to='/board/ee'>
+                <button disabled = {!this.state.login}>Go on !</button>
+            </Link>
         </div>
     );
 }
