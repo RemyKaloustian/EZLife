@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server"
   },
-  "author": "KRUNAL LATHIYA",
+  "author": "Rémy KALOUSTIAN",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.24.0",
