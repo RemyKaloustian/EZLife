@@ -15,7 +15,9 @@ class Board extends Component{
                 
                 {
                     this.props.notes.map((item,index) => 
+                    <Link to={`/details/${item.name}`}>
                         <p key={index}>{item.name}</p>
+                    </Link>
                     )
                 }
             </div>
