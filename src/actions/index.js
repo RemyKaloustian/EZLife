@@ -14,3 +14,8 @@ export const displayList = ()=>({
   type: actionType.DISPLAY_LIST,
   payload:'haha'
 });
+
+export const addNote = (note) =>({
+  type: actionType.ADD_NOTE,
+  payload:note
+});

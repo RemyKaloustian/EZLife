@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 import Link from 'react-router-dom/Link';
+import { connect } from 'react-redux';
+
+import { addNote } from '../actions';
+import { bindActionCreators } from 'redux';
 
 class NewNoteView extends Component{
     render(){
@@ -9,11 +13,15 @@ class NewNoteView extends Component{
             <input  placeholder="Your note"/>
             <Link to={`/board/${this.props.match.params.user}`} >
             <br/>
-                <button>Add this now !</button>
+                <button onClick={(e) => {this.props.dispatch(addNote('héhé'))}}>Add this now !</button>
             </Link>
             </div>
         );
     }
 }
 
-export default NewNoteView;
+function mapDispatchToProps(dispatch) {
+    return { actions: bindActionCreators(addNote, dispatch) }
+  }
+
+  export default connect(mapDispatchToProps)(NewNoteView);

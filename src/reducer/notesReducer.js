@@ -7,7 +7,13 @@ const initialNotes = [
 ];
 
 const notesReducer = (state = initialNotes, action) => {
-  return state;
+    switch (action.type) {
+        case actionType.ADD_NOTE:        
+            return [...state, {name:action.payload}];
+       
+        default:
+          return state;
+    }
 }
 
 export default notesReducer;
