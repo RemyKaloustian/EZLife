@@ -28,7 +28,7 @@ export const App = () => {
               <Route path="/board/:user" component={Board}></Route>  
               <Route path="/settings/:user" component={SettingsView}></Route>
               <Route path="/details/:note" component={DetailsView}></Route>
-              <Route path="/new/:note" component={NewNoteView}></Route>
+              <Route path="/new/:user" component={NewNoteView}></Route>
             </Switch>
           </div>
         </HashRouter>
