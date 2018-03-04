@@ -1,9 +1,9 @@
 import * as actionType from '../actions/ActionType';
 
 const initialNotes = [
-    {name:'Be awesome'},
-    {name:'Be phenomenal'},
-    {name:'Be the greatest'}
+    {name:'Be awesome', subtasks:['awesome 1', 'awesome 2']},
+    {name:'Be phenomenal', subtasks:['phenomenal 1', 'phenomenal 2']},
+    {name:'Be the greatest', subtasks:['greatest 1', 'greatest 2']}
 ];
 
 const notesReducer = (state = initialNotes, action) => {

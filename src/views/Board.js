@@ -9,18 +9,25 @@ class Board extends Component{
         return(
             <div>
                 <h3>{this.props.match.params.user}'s board</h3>
+
                 <Link to={`/settings/${this.props.match.params.user}`}>
                     <button>Settings</button>
                 </Link>
+
                 <Link to={`/new/${this.props.match.params.user}`}>
                     <button>Add note</button>
                 </Link>
                 
                 {
                     this.props.notes.map((item,index) => 
-                    <Link to={`/details/${item.name}`}>
-                        <p key={index}>{item.name}</p>
-                    </Link>
+                        <Link to={`/details/${item.name}`}>
+                            <h4 key={index}>{item.name}</h4>
+                            { 
+                                item.subtasks.map((sub, subindex)=>
+                                  <p key={subindex}>{sub}</p>)
+                            }
+
+                        </Link>
                     )
                 }
             </div>
