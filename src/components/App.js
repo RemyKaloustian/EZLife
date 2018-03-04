@@ -1,7 +1,7 @@
 import React from 'react';
 import {Provider} from 'react-redux';
 import { createStore } from 'redux';
-import { BrowserRouter as Router, Route, HashRouter, IndexRoute } from 'react-router-dom'
+import { BrowserRouter as Router, Route, HashRouter, IndexRoute, Switch } from 'react-router-dom'
 import {browserHistory} from 'react-router';
 
 import reducer from '../reducer';
@@ -22,12 +22,14 @@ export const App = () => {
 
   <Provider store={store}>
         <HashRouter history={browserHistory}>
-        <div>
-            <Route path="/login" component={LoginView}> </Route>
-            <Route path="/board/:user" component={Board}></Route>  
-            <Route path="/settings/:user" component={SettingsView}></Route>
-            <Route path="/details/:note" component={DetailsView}></Route>
-            <Route path="/new/:note" component={NewNoteView}></Route>
+        <div>            
+            <Switch>
+              <Route path="/login" component={LoginView}> </Route>
+              <Route path="/board/:user" component={Board}></Route>  
+              <Route path="/settings/:user" component={SettingsView}></Route>
+              <Route path="/details/:note" component={DetailsView}></Route>
+              <Route path="/new/:note" component={NewNoteView}></Route>
+            </Switch>
           </div>
         </HashRouter>
         
