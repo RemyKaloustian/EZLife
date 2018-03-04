@@ -4,4 +4,4 @@ const notesReducer = (state = ['note1','note2','note3'], action) => {
   return state;
 }
 
-export default displayReducer;
+export default notesReducer;
