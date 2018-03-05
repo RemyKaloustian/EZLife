@@ -20,7 +20,7 @@ class Board extends Component{
                 
                 {
                     this.props.notes.map((item,index) => 
-                        <Link to={`/details/${item.name}`}>
+                        <Link to={`/details/${this.props.match.params.user}/${item.name}`}>
                             <h4 key={index}>{item.name}</h4>
                             { 
                                 item.subtasks.map((sub, subindex)=>

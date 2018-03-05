@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import Link from 'react-router-dom/Link';
 
 class DetailsView extends Component{
     constructor(props){
@@ -25,6 +26,10 @@ class DetailsView extends Component{
                                   <p key={subindex}>{sub}</p>)
 
             }
+
+            <Link to={`/board/${this.props.match.params.user}`}>
+                <button>Back</button>
+            </Link>
             </div>
         );
     }
