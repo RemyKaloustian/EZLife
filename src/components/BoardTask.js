@@ -21,11 +21,11 @@ class BoardTask extends Component {
         return ( 
             <div>
                 <Link to={`/details/${this.props.user}/${this.props.item.name}`}>
-                                <h4 key={this.props.index}>{this.props.item.name}</h4>
-                                { 
-                                    this.props.item.subtasks.map((sub, subindex)=>
-                                    <p key={subindex}>{sub}</p>)
-                                }
+                    <h4 key={this.props.index}>{this.props.item.name}</h4>
+                    { 
+                        this.props.item.subtasks.map((sub, subindex)=>
+                        <p key={subindex}>{sub}</p>)
+                    }
                 </Link>
                 <button onClick={()=> this.deleteNote()}>Delete</button>
             </div>
