@@ -28,13 +28,15 @@ class NewNoteView extends Component{
 
     validateNote(){
         if(this.state.note.trim().length > 0){
+            console.log("Adding for " + this.state.note);
+            
             this.props.dispatch(addNote(this.state.note));
         }
     }
 
     render(){
         if(this.state.isEnterPressed){
-            return <Redirect push to={`/board/${this.state.login}`}></Redirect>
+            return <Redirect push to={`/board/${this.props.match.params.user}`}></Redirect>
         }
 
         return(

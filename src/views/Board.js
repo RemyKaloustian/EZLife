@@ -6,6 +6,8 @@ import BoardTask from '../components/BoardTask';
 
 class Board extends Component{
     render(){
+
+        console.log(this.props.notes);
         return(
             <div>
                 <h3>{this.props.match.params.user}'s board</h3>
