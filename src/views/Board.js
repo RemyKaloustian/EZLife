@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Link from 'react-router-dom/Link';
-
+import BoardTask from '../components/BoardTask';
 
 
 class Board extends Component{
@@ -20,14 +20,10 @@ class Board extends Component{
                 
                 {
                     this.props.notes.map((item,index) => 
-                        <Link to={`/details/${this.props.match.params.user}/${item.name}`}>
-                            <h4 key={index}>{item.name}</h4>
-                            { 
-                                item.subtasks.map((sub, subindex)=>
-                                  <p key={subindex}>{sub}</p>)
-                            }
-
-                        </Link>
+                        <BoardTask user={this.props.match.params.user}
+                            item = {item}
+                            index={index}
+                        ></BoardTask>
                     )
                 }
             </div>
