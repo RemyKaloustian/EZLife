@@ -19,3 +19,9 @@ export const addNote = (note) =>({
   type: actionType.ADD_NOTE,
   payload:note
 });
+
+export const deleteNote = (noteId) =>({
+  type: actionType.DELETE_NOTE,
+  payload:noteId
+});
+ 
