@@ -14,6 +14,7 @@ class DetailsView extends Component{
     addSub(){
         console.log("In addSub, adding subtask with this.props.match.params.note = " + this.props.match.params.note);
         this.props.dispatch(addSubTask(this.state.index, this.state.subtask));
+        this.inputVal.value = '';
     }
 
     handleInputChange(e){
@@ -24,7 +25,7 @@ class DetailsView extends Component{
         return(
             <div>
             <h3>{this.props.match.params.note}</h3>
-            <input placeholder="new subtask" onChange={(e)=>this.handleInputChange(e)}/>
+            <input placeholder="new subtask" onChange={(e)=>this.handleInputChange(e)} ref={el => this.inputVal = el}/>
             <button onClick= {() => this.addSub()}>Add subtask</button>
 
             {
