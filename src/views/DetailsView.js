@@ -5,10 +5,12 @@ import { bindActionCreators } from 'redux';
 
 import {addSubTask} from '../actions';
 
+let self;
 class DetailsView extends Component{
     constructor(props){
         super(props);
         this.state = {subtask: '', index:this.props.notes.findIndex((note)=> note.name == this.props.match.params.note)};
+        self = this;
     }
 
     addSub(){
@@ -21,11 +23,21 @@ class DetailsView extends Component{
         this.setState({subtask:e.target.value});
     }
 
+
+    handleKeyPress(e){
+        if(e.charCode == '13'){
+            self.addSub();
+        }
+    }
     render(){      
         return(
             <div>
             <h3>{this.props.match.params.note}</h3>
-            <input placeholder="new subtask" onChange={(e)=>this.handleInputChange(e)} ref={el => this.inputVal = el}/>
+            <input placeholder="new subtask" 
+                onChange={(e)=>this.handleInputChange(e)} 
+                ref={el => this.inputVal = el}
+                onKeyPress={this.handleKeyPress}/>
+
             <button onClick= {() => this.addSub()}>Add subtask</button>
 
             {
