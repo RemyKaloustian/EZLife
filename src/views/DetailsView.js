@@ -8,24 +8,30 @@ import {addSubTask} from '../actions';
 class DetailsView extends Component{
     constructor(props){
         super(props);
-        this.state = {index:this.props.notes.findIndex((note)=> note.name == this.props.match.params.note)};
+        this.state = {subtask: '', index:this.props.notes.findIndex((note)=> note.name == this.props.match.params.note)};
     }
 
     addSub(){
         console.log("In addSub, adding subtask with this.props.match.params.note = " + this.props.match.params.note);
-        this.props.dispatch(addSubTask(this.state.index, "baybay"));
+        this.props.dispatch(addSubTask(this.state.index, this.state.subtask));
+    }
+
+    handleInputChange(e){
+        this.setState({subtask:e.target.value});
     }
 
     render(){      
         return(
             <div>
             <h3>{this.props.match.params.note}</h3>
+            <input placeholder="new subtask" onChange={(e)=>this.handleInputChange(e)}/>
+            <button onClick= {() => this.addSub()}>Add subtask</button>
+
             {
                 this.props.notes[this.state.index].subtasks.map((sub, subindex)=>
                                   <p key={subindex}>{sub}</p>)
 
             }
-            <button onClick= {() => this.addSub()}>Add sub task</button>
             <Link to={`/board/${this.props.match.params.user}`}>
                 <button>Back</button>
             </Link>
