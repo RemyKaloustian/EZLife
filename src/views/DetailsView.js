@@ -43,7 +43,7 @@ class DetailsView extends Component{
 
             {
                 this.props.notes[this.state.index].subtasks.map((sub, subindex)=>
-                                  <SubTask key={subindex} name={sub.name} done={sub.done}></SubTask>)
+                                  <SubTask key={subindex} name={sub.name} done={sub.done} index={this.state.index}></SubTask>)
 
             }
             <Link to={`/board/${this.props.match.params.user}`}>
