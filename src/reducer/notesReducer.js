@@ -4,10 +4,14 @@ const createNote = (id, name, subtasks)=>{
     return {id,  name, subtasks};
 }
 
+const createSubtask = (name, done) =>{
+    return {name, done}
+}
+
 const initialNotes = [
-    createNote(0, 'Be awesome', ['awesome 1', 'awesome 2']),
-    createNote(1, 'Be phenomenal', ['phenomenal 1', 'phenomenal 2']),
-    createNote(2, 'Be the greatest', ['greatest 1', 'greatest 2']),
+    createNote(0, 'Be awesome', [createSubtask('awesome1',false), createSubtask('awesome2',true)]),
+    createNote(1, 'Be phenomenal', [createSubtask('phenomenal1',false), createSubtask('phenomenal2',false)]),
+    createNote(2, 'Be the greatest', [createSubtask('greatest1',false), createSubtask('greatest2',false)]),
 ];
 
 
@@ -23,7 +27,7 @@ const notesReducer = (state = initialNotes, action) => {
         case actionType.ADD_SUBTASK:
             console.log(action.payload.note);
             const i = action.payload.note;
-            return [...state.slice(0,i), {...state[i], subtasks:[...state[i].subtasks,action.payload.subtask]},...state.slice(i+1, state.length)];
+            return [...state.slice(0,i), {...state[i], subtasks:[...state[i].subtasks,createSubtask(action.payload.subtask, false)]},...state.slice(i+1, state.length)];
         
             default:
         return state;

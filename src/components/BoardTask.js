@@ -24,7 +24,7 @@ class BoardTask extends Component {
                     <h4 key={this.props.index}>{this.props.item.name}</h4>
                     { 
                         this.props.item.subtasks.map((sub, subindex)=>
-                        <p key={subindex}>{sub}</p>)
+                        <p key={subindex}>{sub.name}</p>)
                     }
                 </Link>
                 <button onClick={()=> this.deleteNote()}>Delete</button>

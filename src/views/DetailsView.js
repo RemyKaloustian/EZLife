@@ -4,6 +4,7 @@ import Link from 'react-router-dom/Link';
 import { bindActionCreators } from 'redux';
 
 import {addSubTask} from '../actions';
+import SubTask from '../components/SubTask';
 
 let self;
 class DetailsView extends Component{
@@ -42,7 +43,7 @@ class DetailsView extends Component{
 
             {
                 this.props.notes[this.state.index].subtasks.map((sub, subindex)=>
-                                  <p key={subindex}>{sub}</p>)
+                                  <SubTask key={subindex} name={sub.name} done={sub.done}></SubTask>)
 
             }
             <Link to={`/board/${this.props.match.params.user}`}>
