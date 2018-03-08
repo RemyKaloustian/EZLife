@@ -1,0 +1,32 @@
+@font-face {
+    font-family: "gotham-bold-italic";
+    src: url("../assets/fonts/gotham-bold-italic.ttf");
+   }
+
+@font-face {
+    font-family: "gotham-light";
+    src: url("../assets/fonts/gotham-light.otf") ;
+}
+
+@font-face {
+    font-family: "gotham-thin";
+    src: url("../assets/fonts/gotham-thin.ttf");
+}
+
+
+.gotham-bold
+{
+    font-family: gotham-bold-italic;
+    color: #FF3366;
+}
+
+.gotham-light
+{
+    font-family: gotham-light;
+}
+
+.gotham-thin
+{
+    font-family: gotham-thin;
+}
+
