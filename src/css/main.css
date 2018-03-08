@@ -5,9 +5,21 @@
 body
 {
     width:100%;
-    overflow-x: hidden;
+    font-size: 2.5rem;
 }
 a
 {
     text-decoration: none;
+}
+
+.fixed-bottom
+{
+    position: fixed;
+    bottom: 0;
+    z-index: 2;
+}
+
+.page-content
+{
+    margin-top: 10%;
 }

@@ -1,7 +1,21 @@
 .header-panel
 {
+    width:100%;
     background-color: black;
     color:white;
     font-size: 3rem;
-    padding-left: 10%;
+    position: fixed;
+    top:0;
+    display: flex;
+    justify-content:space-around;
+}
+
+button
+{
+    font-size: 2rem;
+}
+
+#bottom-menu
+{
+    
 }

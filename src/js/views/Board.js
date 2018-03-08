@@ -9,17 +9,16 @@ class Board extends Component{
 
         console.log(this.props.notes);
         return(
-            <div>
-                <h3 className='gotham-bold header-panel'>📋{this.props.match.params.user}'s board</h3>
-
-                <Link to={`/settings/${this.props.match.params.user}`}>
-                    <button>Settings</button>
-                </Link>
-
-                <Link to={`/new/${this.props.match.params.user}`}>
-                    <button>Add note</button>
-                </Link>
-                
+            <div className='page-content'>
+                <div className='header-panel'>
+                    <h3 className='gotham-bold'>📋{this.props.match.params.user}'s board</h3>
+                    <Link to={`/settings/${this.props.match.params.user}`}>
+                        <button>Settings</button>
+                    </Link>
+                    
+                </div>
+              
+               
                 {
                     this.props.notes.map((item,index) => 
                         <BoardTask user={this.props.match.params.user}
@@ -28,6 +27,15 @@ class Board extends Component{
                         ></BoardTask>
                     )
                 }
+
+                <div className='fixed-bottom'>
+               
+                    <button>Layout</button>
+                    <Link to={`/new/${this.props.match.params.user}`}>
+                        <button>Add note</button>
+                    </Link>
+                
+                </div>
             </div>
         );
     }
