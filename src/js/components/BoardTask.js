@@ -19,7 +19,7 @@ class BoardTask extends Component {
     
     render() { 
         return ( 
-            <div>
+            <div className='board-task'>
                 <Link to={`/details/${this.props.user}/${this.props.item.name}`}>
                     <h4 key={this.props.index} className='gotham-light'>{this.props.item.name}</h4>
                     { 

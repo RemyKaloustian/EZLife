@@ -28,7 +28,7 @@ class Board extends Component{
 
         console.log(this.props.notes);
         return(
-            <div className={`page-content ${this.state.display}`}>
+            <div >
                 <div className='header-panel'>
                     <h3 className='gotham-bold'>📋{this.props.match.params.user}'s board</h3>
                     <Link to={`/settings/${this.props.match.params.user}`}>
@@ -37,7 +37,7 @@ class Board extends Component{
                     
                 </div>
               
-               
+               <div className={`page-content ${this.state.display}`}>
                 {
                     this.props.notes.map((item,index) => 
                         <BoardTask user={this.props.match.params.user}
@@ -46,6 +46,7 @@ class Board extends Component{
                         ></BoardTask>
                     )
                 }
+                </div>
 
                 <div className='fixed-bottom'>
                
