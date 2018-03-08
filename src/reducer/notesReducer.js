@@ -29,11 +29,11 @@ const notesReducer = (state = initialNotes, action) => {
             const i = action.payload.note;
             return [...state.slice(0,i), {...state[i], subtasks:[...state[i].subtasks,createSubtask(action.payload.subtask, false)]},...state.slice(i+1, state.length)];
         
-        case actionType.DO_SUBTASK:
+        case actionType.TOGGLE_SUBTASK:
             const subIndex = state[action.payload.noteId].subtasks.findIndex((subtask) => subtask.name == action.payload.subtask);
             const id = action.payload.noteId;
             let newarr = [...state];
-            newarr[id].subtasks[subIndex].done = true;
+            newarr[id].subtasks[subIndex].done = action.payload.isDone;
             return [...newarr];
             
         default:

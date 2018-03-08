@@ -15,9 +15,12 @@ class DetailsView extends Component{
     }
 
     addSub(){
-        console.log("In addSub, adding subtask with this.props.match.params.note = " + this.props.match.params.note);
-        this.props.dispatch(addSubTask(this.state.index, this.state.subtask));
-        this.inputVal.value = '';
+        if(this.state.subtask.trim().length > 0){
+            console.log("In addSub, adding subtask with this.props.match.params.note = " + this.props.match.params.note);
+            this.props.dispatch(addSubTask(this.state.index, this.state.subtask));
+            this.inputVal.value = '';
+            this.setState({subtask:''});
+        }        
     }
 
     handleInputChange(e){

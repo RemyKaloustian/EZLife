@@ -30,7 +30,7 @@ export const deleteNote = (noteId) =>({
   payload:noteId
 });
  
-export const doSubTask = (noteId, subtask) =>({
-  type: actionType.DO_SUBTASK,
-  payload:{noteId, subtask}
+export const toggleSubTask = (noteId, subtask, isDone) =>({
+  type: actionType.TOGGLE_SUBTASK,
+  payload:{noteId, subtask, isDone}
 });

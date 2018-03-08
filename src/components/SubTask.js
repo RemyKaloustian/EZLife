@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 
-import {doSubTask} from '../actions';
+import {toggleSubTask} from '../actions';
 class SubTask extends Component {
 
     doSub(){
-        this.props.dispatch(doSubTask(this.props.index, this.props.name));
+        let isDone = !this.props.notes[this.props.index].subtasks[this.props.subindex].done
+        this.props.dispatch(toggleSubTask(this.props.index, this.props.name, isDone));
     }
 
     render() { 
@@ -30,7 +31,7 @@ function mapStateToProps(state){
 
 
 function mapDispatchToProps(dispatch){
-    return {actions: bindActionCreators(doSubTask, dispatch)}
+    return {actions: bindActionCreators(toggleSubTask, dispatch)}
 }
 
 
