@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Link from 'react-router-dom/Link';
 import BoardTask from '../components/BoardTask';
-
+import '../../css/board.css';
 
 class Board extends Component{
     render(){
@@ -10,7 +10,7 @@ class Board extends Component{
         console.log(this.props.notes);
         return(
             <div>
-                <h3 className='gotham-bold'>{this.props.match.params.user}'s board</h3>
+                <h3 className='gotham-bold header-panel'>📋{this.props.match.params.user}'s board</h3>
 
                 <Link to={`/settings/${this.props.match.params.user}`}>
                     <button>Settings</button>
