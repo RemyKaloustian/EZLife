@@ -9,7 +9,6 @@ const TOGGLE_BUTTON_UNDONE = 'Undone';
 
 
 class SubTask extends Component {
-
     constructor(props) {
         super(props);
         let isDone = this.props.notes[this.props.index].subtasks[this.props.subindex].done
@@ -19,8 +18,7 @@ class SubTask extends Component {
         else{
             this.state = {toggleButton:TOGGLE_BUTTON_DONE};            
         }
-    }
-    
+    }    
 
     doSub(){
         let isDone = !this.props.notes[this.props.index].subtasks[this.props.subindex].done
@@ -56,6 +54,5 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch){
     return {actions: bindActionCreators(toggleSubTask, dispatch)}
 }
-
 
 export default connect(mapStateToProps) (SubTask);
