@@ -18,7 +18,7 @@ const initialNotes = [
 const notesReducer = (state = initialNotes, action) => {
     switch (action.type) {
         case actionType.ADD_NOTE:   
-        console.log("ADD_NOTE, w/ action.payload = "+ action.payload);     
+            console.log("ADD_NOTE, w/ action.payload = "+ action.payload);     
             return [...state, createNote(state.length, action.payload, [])];
 
         case actionType.DELETE_NOTE:
@@ -29,8 +29,15 @@ const notesReducer = (state = initialNotes, action) => {
             const i = action.payload.note;
             return [...state.slice(0,i), {...state[i], subtasks:[...state[i].subtasks,createSubtask(action.payload.subtask, false)]},...state.slice(i+1, state.length)];
         
-            default:
-        return state;
+        case actionType.DO_SUBTASK:
+            const subIndex = state[action.payload.noteId].subtasks.findIndex((subtask) => subtask.name == action.payload.subtask);
+            const id = action.payload.noteId;
+            let newarr = [...state];
+            newarr[id].subtasks[subIndex].done = true;
+            return [...newarr];
+            
+        default:
+            return state;
     }
 }
 

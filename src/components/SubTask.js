@@ -1,25 +1,37 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from 'redux';
 
+import {doSubTask} from '../actions';
 class SubTask extends Component {
 
-    doSubtask(){
-        console.log("Doing subtask for task "+ this.props.index);
+    doSub(){
+        this.props.dispatch(doSubTask(this.props.index, this.props.name));
     }
 
     render() { 
-        console.log("In SubTask, name = " + this.props.name);
-        console.log("In SubTask, done = " + this.props.done);
         
         return ( 
             <div>
                 <p>{this.props.name}</p>
-                <p>{`${this.props.done}`}</p>
-                <button onClick={()=> this.doSubtask()}>Done</button>
+                <p>{`${this.props.notes[this.props.index].subtasks[this.props.subindex].done}`}</p>
+                <button onClick={()=> this.doSub()}>Done</button>
             </div>
 
          )
     }
 }
 
+function mapStateToProps(state){
+    return {
+        notes: state.notesReducer,
+      };
+}
 
-export default SubTask;
+
+function mapDispatchToProps(dispatch){
+    return {actions: bindActionCreators(doSubTask, dispatch)}
+}
+
+
+export default connect(mapStateToProps) (SubTask);

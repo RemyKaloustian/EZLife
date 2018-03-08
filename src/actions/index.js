@@ -24,8 +24,13 @@ export const addSubTask = (note, subtask) =>({
   type: actionType.ADD_SUBTASK,
   payload:{note, subtask}
 });
+
 export const deleteNote = (noteId) =>({
   type: actionType.DELETE_NOTE,
   payload:noteId
 });
  
+export const doSubTask = (noteId, subtask) =>({
+  type: actionType.DO_SUBTASK,
+  payload:{noteId, subtask}
+});
