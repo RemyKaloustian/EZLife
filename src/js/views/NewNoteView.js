@@ -41,15 +41,19 @@ class NewNoteView extends Component{
 
         return(
             <div>
-            <h3>New note for {this.props.match.params.user}</h3>
-            <input  placeholder="Your note"
-             onChange = {(e)=>this.handleChange(e)}
-             onKeyPress={this.handleKeyPress}/>
-             <br/>
-            <Link to={`/board/${this.props.match.params.user}`} >
-            
-                <button onClick={(e) => {this.validateNote()}}>Add this now !</button>
-            </Link>
+                <div className='header-panel'>
+                     <h3 className='header-title'>New note for {this.props.match.params.user}</h3>
+                </div>
+                <div className='page-content alternative-content'>
+                    <input  placeholder="Your note"
+                        onChange = {(e)=>this.handleChange(e)}
+                        onKeyPress={this.handleKeyPress}/>
+                    <br/>
+                    <Link to={`/board/${this.props.match.params.user}`} >
+                    
+                        <button onClick={(e) => {this.validateNote()}}>Add this now !</button>
+                    </Link>
+                </div>
             </div>
         );
     }
