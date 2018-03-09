@@ -5,11 +5,15 @@ class SettingsView extends Component{
     render(){
         return (
             <div>
-                <h3>Settings view</h3>
-                <p>The settings</p>
-                <Link to={`/board/${this.props.match.params.user}`} >
-                    <button>Apply</button>
-                </Link>
+            <div className='header-panel'>
+                <h3 className='header-title'>Settings view</h3>
+            </div>
+                <div className='page-content alternative-content'>
+                    <p>The settings</p>
+                    <Link to={`/board/${this.props.match.params.user}`} >
+                        <button>Apply</button>
+                    </Link>
+                </div>
             </div>
         );
     }
