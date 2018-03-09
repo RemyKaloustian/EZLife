@@ -36,22 +36,27 @@ class DetailsView extends Component{
     render(){      
         return(
             <div>
-            <h3>{this.props.match.params.note}</h3>
-            <input placeholder="new subtask" 
-                onChange={(e)=>this.handleInputChange(e)} 
-                ref={el => this.inputVal = el}
-                onKeyPress={this.handleKeyPress}/>
+                    
+                <div className='header-panel'>
+                    <h3 className='header-title'>{this.props.match.params.note}</h3>
+                </div>
+                <div className='page-content alternative-content'>
+                    <input placeholder="new subtask" 
+                        onChange={(e)=>this.handleInputChange(e)} 
+                        ref={el => this.inputVal = el}
+                        onKeyPress={this.handleKeyPress}/>
 
-            <button onClick= {() => this.addSub()}>Add subtask</button>
+                    <button onClick= {() => this.addSub()}>Add subtask</button>
 
-            {
-                this.props.notes[this.state.index].subtasks.map((sub, subindex)=>
-                                  <SubTask key={subindex} name={sub.name} done={sub.done} index={this.state.index} subindex ={subindex}></SubTask>)
+                    {
+                        this.props.notes[this.state.index].subtasks.map((sub, subindex)=>
+                                        <SubTask key={subindex} name={sub.name} done={sub.done} index={this.state.index} subindex ={subindex}></SubTask>)
 
-            }
-            <Link to={`/board/${this.props.match.params.user}`}>
-                <button>Back</button>
-            </Link>
+                    }
+                    <Link to={`/board/${this.props.match.params.user}`}>
+                        <button>Back</button>
+                    </Link>
+                </div>
             </div>
         );
     }

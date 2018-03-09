@@ -1,11 +1,5 @@
-.header-panel
+.header-panel-board
 {
-    width:100%;
-    background-color: black;
-    color:white;
-    font-size: 3rem;
-    position: fixed;
-    top:0;
     display: flex;
     justify-content:space-around;
 }

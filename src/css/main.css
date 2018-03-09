@@ -12,6 +12,22 @@ a
     text-decoration: none;
 }
 
+.header-panel
+{
+    width:100%;
+    background-color: black;
+    color:white;
+    font-size: 3rem;
+    position: fixed;
+    top:0;
+    font-family: gotham-bold-italic;
+}
+
+.header-title
+{
+    margin-left: 10%;
+}
+
 .fixed-bottom
 {
     position: fixed;
@@ -22,7 +38,11 @@ a
 .page-content
 {
     margin-top: 10%;
-    
+}
+
+.alternative-content
+{
+    margin-left: 5%;
 }
 
 .flex-column

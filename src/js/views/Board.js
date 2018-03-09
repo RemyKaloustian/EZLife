@@ -29,8 +29,8 @@ class Board extends Component{
         console.log(this.props.notes);
         return(
             <div >
-                <div className='header-panel'>
-                    <h3 className='gotham-bold'>📋{this.props.match.params.user}'s board</h3>
+                <div className='header-panel header-panel-board'>
+                    <h3>📋{this.props.match.params.user}'s board</h3>
                     <Link to={`/settings/${this.props.match.params.user}`}>
                         <button>Settings</button>
                     </Link>
