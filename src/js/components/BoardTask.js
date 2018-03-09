@@ -5,6 +5,7 @@ import Link from 'react-router-dom/Link';
 import { deleteNote } from '../actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import BoardSubTask from './BoardSubTask';
 
 class BoardTask extends Component {
 
@@ -21,10 +22,10 @@ class BoardTask extends Component {
         return ( 
             <div className='board-task'>
                 <Link to={`/details/${this.props.user}/${this.props.item.name}`}>
-                    <h4 key={this.props.index} className='gotham-light'>{this.props.item.name}</h4>
+                    <h4 key={this.props.index} className='gotham-light board-title'>{this.props.item.name}</h4>
                     { 
                         this.props.item.subtasks.map((sub, subindex)=>
-                        <p key={subindex} className='gotham-thin'>{sub.name}</p>)
+                        <BoardSubTask key={subindex} name={sub.name} done = {sub.done} className='gotham-thin board-subtask'></BoardSubTask>)
                     }
                 </Link>
                 <button onClick={()=> this.deleteNote()}>Delete</button>
