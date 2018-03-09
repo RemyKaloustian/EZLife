@@ -5,7 +5,8 @@ import { Redirect } from 'react-router';
 
 import { addNote } from '../actions';
 import { bindActionCreators } from 'redux';
-
+import { getRandomColor } from '../utils/colors';
+import '../../css/newnote.css';
 let self ;
 class NewNoteView extends Component{
 
@@ -41,17 +42,17 @@ class NewNoteView extends Component{
 
         return(
             <div>
-                <div className='header-panel'>
+                <div className='header-panel' style={{backgroundColor: getRandomColor()}}>
                      <h3 className='header-title'>New note for {this.props.match.params.user}</h3>
                 </div>
-                <div className='page-content alternative-content'>
-                    <input  placeholder="Your note"
+                <div className='page-content flex-column'>
+                    <input  placeholder="Your note" className='full-input'
                         onChange = {(e)=>this.handleChange(e)}
                         onKeyPress={this.handleKeyPress}/>
                     <br/>
-                    <Link to={`/board/${this.props.match.params.user}`} >
+                    <Link to={`/board/${this.props.match.params.user}`}  className='validate-button'>
                     
-                        <button onClick={(e) => {this.validateNote()}}>Add this now !</button>
+                        <button style={{backgroundColor: getRandomColor()}} onClick={(e) => {this.validateNote()}}></button>
                     </Link>
                 </div>
             </div>

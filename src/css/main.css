@@ -16,7 +16,6 @@ a
 .header-panel
 {
     width:100%;
-    background-color: black;
     color:white;
     font-size: 3rem;
     position: fixed;
@@ -58,4 +57,14 @@ a
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+}
+
+.full-input
+{
+    width:100%;
+    border: none;
+    height:100px;
+    font-size: 2rem;
+    font-family: gotham-light;
+    padding-left: 20px;
 }

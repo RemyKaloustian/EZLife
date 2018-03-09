@@ -19,12 +19,8 @@ class BoardTask extends Component {
     
     
     render() { 
-
-    const color = getRandomColor();
-    console.log("color is "+color);
-    
         return ( 
-            <div className='board-task' style={{backgroundColor: color}}>
+            <div className='board-task' style={{backgroundColor: getRandomColor()}}>
                 <Link to={`/details/${this.props.user}/${this.props.item.name}`}>
                     <h4 key={this.props.index} className='gotham-light board-title'>{this.props.item.name}</h4>
                     { 

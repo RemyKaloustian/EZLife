@@ -6,10 +6,12 @@ const COLORS = [
 
 ];
 
+const random_color = getRandomColorFromArray(COLORS);
+
 export function getRandomColorFromArray(colorsArray){
     return COLORS[Math.floor(Math.random() * (colorsArray.length - 0) + 0)];
 }
 
 export function getRandomColor(){
-    return getRandomColorFromArray(COLORS);
+    return random_color;
 }

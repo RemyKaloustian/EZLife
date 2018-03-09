@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Link from 'react-router-dom/Link';
 import BoardTask from '../components/BoardTask';
 import '../../css/board.css';
-
+import {getRandomColor} from '../utils/colors';
 const DISPLAY_COLUMN = 'flex-column';
 const DISPLAY_ROW = 'flex-row';
 
@@ -29,7 +29,7 @@ class Board extends Component{
         console.log(this.props.notes);
         return(
             <div >
-                <div className='header-panel header-panel-board'>
+                <div className='header-panel header-panel-board' style={{backgroundColor: getRandomColor()}}>
                     <h3>📋{this.props.match.params.user}'s board</h3>
                     <Link to={`/settings/${this.props.match.params.user}`}>
                         <button>Settings</button>
