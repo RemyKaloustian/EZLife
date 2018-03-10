@@ -48,7 +48,7 @@ class BoardView extends Component{
         return(
             <div >
                 <div className='header-panel header-panel-board' style={{backgroundColor: getRandomColor()}}>
-                    <h3>📋{this.props.match.params.user}\'s board</h3>
+                    <h3>📋{this.props.match.params.user}'s board</h3>
                     <Link to={`/settings/${this.props.match.params.user}`}>
                         <img src='src/assets/icons/gear.png'/>
                     </Link>                    

@@ -1,13 +1,18 @@
+// Module exports
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import Link from 'react-router-dom/Link';
 import { bindActionCreators } from 'redux';
 
+// File exports
 import {addSubTask} from '../actions';
 import SubTask from '../components/SubTask';
 import {getRandomColor} from '../utils/colors';
 import '../../css/details.css';
-let self;
+
+let self; //Used in functions with events params so we can access this.state or setState
+
+//The details of a task
 class DetailsView extends Component{
     constructor(props){
         super(props);
@@ -16,9 +21,7 @@ class DetailsView extends Component{
                     undoneTasks:[],
                     doneTasks:[],
         };
-        self = this;
-
-       
+        self = this;      
     }
 
     componentDidMount(){
@@ -27,27 +30,19 @@ class DetailsView extends Component{
 
     setDoneAndUndone(){
         let subtasks = this.props.notes[this.state.index].subtasks;
-        console.log(subtasks);
+
         for (let index = 0; index < subtasks.length; index++) {
             if(!subtasks[index].done){
                 let undoneTab = this.state.undoneTasks;
                 undoneTab.push(subtasks[index]);
-                this.setState({undoneTasks:undoneTab});
-                
+                this.setState({undoneTasks:undoneTab});                
             }  
             else {
                 let doneTab = this.state.doneTasks;
                 doneTab.push(subtasks[index]);
-                this.setState({doneTasks:doneTab});
-                
+                this.setState({doneTasks:doneTab});                
             }          
         }
-
-        console.log("UNDONE");
-        console.log(this.state.undoneTasks);
-        console.log("DONE");
-        console.log(this.state.doneTasks);
-        
     }
 
     addSub(){
@@ -62,7 +57,6 @@ class DetailsView extends Component{
         this.setState({subtask:e.target.value});
     }
 
-
     handleKeyPress(e){
         if(e.charCode == '13'){
             self.addSub();
@@ -72,20 +66,21 @@ class DetailsView extends Component{
     toBoard(){
         this.props.history.push(`/board/${this.props.match.params.user}`);
     }
+
     render(){      
         return(
-            <div>
-                    
+            <div>                    
                 <div className='header-panel' style={{backgroundColor: getRandomColor()}}>
                     <h3 className='header-title'>{this.props.match.params.note}</h3>
                 </div>
+                
                 <div className='page-content alternative-content'>
                     <div className='details-input'>
                         <input placeholder="new subtask" 
-                            className='inline-input input'
-                            onChange={(e)=>this.handleInputChange(e)} 
-                            ref={el => this.inputVal = el}
-                            onKeyPress={this.handleKeyPress}/>
+                                className='inline-input input'
+                                onChange={(e)=>this.handleInputChange(e)} 
+                                ref={el => this.inputVal = el}
+                                onKeyPress={this.handleKeyPress}/>
                         <img src='src/assets/icons/check.png' className='validate-subtask-icon' style={{backgroundColor: getRandomColor()}}
                             onClick={()=> this.addSub()}/>
                     </div>
