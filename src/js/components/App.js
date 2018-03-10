@@ -1,14 +1,12 @@
+// Module imports
 import React from 'react';
 import {Provider} from 'react-redux';
 import { createStore } from 'redux';
 import { BrowserRouter as Router, Route, HashRouter, IndexRoute, Switch } from 'react-router-dom'
 import {browserHistory} from 'react-router';
 
+// File imports
 import reducer from '../reducer';
-import Counter from './Counter';
-import AddCounter from './AddCounter';
-import RemoveCounter from './RemoveCounter';
-import ListDisplayer from './ListDisplayer';
 import LoginView from '../views/LoginView';
 import BoardView from '../views/BoardView';
 import SettingsView from '../views/SettingsView';
@@ -19,10 +17,9 @@ const store = createStore(reducer);
 
 export const App = () => {
  return(
-
   <Provider store={store}>
         <HashRouter history={browserHistory}>
-        <div>            
+          <div>            
             <Switch>
               <Route path="/login" component={LoginView}> </Route>
               <Route path="/board/:user" component={BoardView}></Route>  
@@ -31,33 +28,8 @@ export const App = () => {
               <Route path="/new/:user" component={NewNoteView}></Route>
             </Switch>
           </div>
-        </HashRouter>
-        
+        </HashRouter>        
   </Provider>);
 }
+
 export default App;
-
-
-
-
-
-/*
-const testIfWorks = () =>{
-  return(
-    <div className="container">
-      <Counter></Counter><br />
-      <div className="columns">
-        <div className="column is-11">
-          <AddCounter></AddCounter>
-        </div>
-        <div className="column auto">
-          <RemoveCounter></RemoveCounter>
-        </div>
-        <div className="column auto">
-          <ListDisplayer></ListDisplayer>
-        </div>
-      </div>
-  </div>
-  );
-
-}*/
