@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 
 import {addSubTask} from '../actions';
 import SubTask from '../components/SubTask';
+import {getRandomColor} from '../utils/colors';
 
 let self;
 class DetailsView extends Component{
@@ -37,7 +38,7 @@ class DetailsView extends Component{
         return(
             <div>
                     
-                <div className='header-panel'>
+                <div className='header-panel' style={{backgroundColor: getRandomColor()}}>
                     <h3 className='header-title'>{this.props.match.params.note}</h3>
                 </div>
                 <div className='page-content alternative-content'>

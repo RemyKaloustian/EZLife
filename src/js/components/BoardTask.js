@@ -28,7 +28,7 @@ class BoardTask extends Component {
                         <BoardSubTask key={subindex} name={sub.name} done = {sub.done} className='gotham-thin board-subtask'></BoardSubTask>)
                     }
                 </Link>
-                <button className='delete-task-btn' onClick={()=> this.deleteNote()}>Delete</button>
+                <button className='delete-task-btn' onClick={()=> this.deleteNote()}><img src='src/assets/icons/delete.png'/></button>
             </div>
          );
     }
