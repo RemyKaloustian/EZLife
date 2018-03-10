@@ -1,14 +1,15 @@
+// Module imports
 import { combineReducers } from 'redux';
-import counterReducer from './counterReducer';
-import displayReducer from './displayReducer';
-import notesReducer from './notesReducer'
 import {routerReducer} from 'react-router-redux';
 
+// File imports
+import notesReducer from './notesReducer';
 
-//THIS IS THE STORE
-const counterApp = combineReducers({
-  counterReducer, displayReducer,notesReducer,
+
+//THIS IS THE STORE, we add the notesReducer to it
+const appReducer = combineReducers({
+  notesReducer,
   routing: routerReducer
 })
 
-export default counterApp
+export default appReducer;
