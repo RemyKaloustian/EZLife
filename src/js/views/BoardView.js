@@ -16,17 +16,22 @@ class BoardView extends Component{
 
     constructor(props) {
         super(props);
-        this.state = {display:DISPLAY_COLUMN, displayIcon:DISPLAY_ROW_ICON};
+        if(localStorage.getItem('display') != null){
+            this.state = {display:localStorage.getItem('display'), displayIcon:DISPLAY_ROW_ICON};
+        }
+        else{
+            this.state = {display:DISPLAY_COLUMN, displayIcon:DISPLAY_ROW_ICON};
+        }
     }
 
     changeDisplay(){
         if(this.state.display === DISPLAY_COLUMN){
             this.setState({display: DISPLAY_ROW, displayIcon:DISPLAY_COLUMN_ICON});
-            
         }
         else if(this.state.display === DISPLAY_ROW){
             this.setState({display:DISPLAY_COLUMN, displayIcon:DISPLAY_ROW_ICON});
         }
+        
     }
 
     toNewNote(){
@@ -35,8 +40,7 @@ class BoardView extends Component{
     
 
     render(){
-
-        console.log(this.props.notes);
+        localStorage.setItem('display', this.state.display);
         return(
             <div >
                 <div className='header-panel header-panel-board' style={{backgroundColor: getRandomColor()}}>
