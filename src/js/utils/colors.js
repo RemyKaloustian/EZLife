@@ -6,25 +6,29 @@
 
 ];*/
 
+// Is used to get a random color, for backgrounds and some font colors
+
 const COLORS = [
     {primary: '#F44336' , secondary:'#FF1744' },
     {primary: '#E91E63' , secondary: '#F50057'},
     {primary: '#9C27B0'  , secondary: '#AA00FF'},
-    {primary: '#673AB7' , secondary:'#651FFF' },
-
+    {primary: '#673AB7' , secondary:'#651FFF' }
 
 ];
 
 const random_color = getRandomColorFromArray(COLORS);
 
+//In case we have another color array
 export function getRandomColorFromArray(colorsArray){
     return COLORS[Math.floor(Math.random() * (colorsArray.length - 0) + 0)];
 }
 
+//Is used by the components
 export function getRandomColor(){
     return random_color.primary;
 }
 
+//Is used by the components
 export function getRandomColorSecondary(){
     return random_color.secondary;
 }
