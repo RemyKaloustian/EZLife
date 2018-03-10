@@ -6,7 +6,7 @@ import { deleteNote } from '../actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import BoardSubTask from './BoardSubTask';
-import {getRandomColor, getRandomColorFromArray} from '../utils/colors';
+import {getRandomColor, getRandomColorSecondary} from '../utils/colors';
 class BoardTask extends Component {
 
     constructor(props) {
@@ -28,7 +28,7 @@ class BoardTask extends Component {
                         <BoardSubTask key={subindex} name={sub.name} done = {sub.done} className='gotham-thin board-subtask'></BoardSubTask>)
                     }
                 </Link>
-                <button className='delete-task-btn' onClick={()=> this.deleteNote()}><img src='src/assets/icons/delete.png'/></button>
+                <button className='delete-task-btn' style={{backgroundColor: getRandomColorSecondary()}} onClick={()=> this.deleteNote()}><img src='src/assets/icons/delete.png'/></button>
             </div>
          );
     }

@@ -46,7 +46,7 @@ a{
 .delete-task-btn
 {
     margin-top: 80px;
-    background-color: crimson;
+    //background-color: crimson;
     border:none;
     padding-top: 5px;
 }
