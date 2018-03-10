@@ -15,6 +15,7 @@ import NewNoteView from '../views/NewNoteView';
 
 const store = createStore(reducer);
 
+// The main component
 export const App = () => {
  return(
   <Provider store={store}>
