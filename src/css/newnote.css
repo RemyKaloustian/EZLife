@@ -2,11 +2,19 @@
 .validate-button
 {
     display: block;
-    border: none;
     width:100%;
-    height:200px;
+    height:160px;
 }
 .validate-button button{
     width:100%;
-    height: 100%;
+    border: none;
+
+}
+
+.validate-button img
+{
+    position: relative;
+    width:10%;
+    margin-left: 50%;
+    margin-top:2%;
 }

@@ -45,14 +45,17 @@ class NewNoteView extends Component{
                 <div className='header-panel' style={{backgroundColor: getRandomColor()}}>
                      <h3 className='header-title'>New note for {this.props.match.params.user}</h3>
                 </div>
-                <div className='page-content flex-column'>
+                <div className='page-content flex-column centered'>
                     <input  placeholder="Your note" className='full-input'
                         onChange = {(e)=>this.handleChange(e)}
                         onKeyPress={this.handleKeyPress}/>
                     <br/>
-                    <Link to={`/board/${this.props.match.params.user}`}  className='validate-button'>
-                    
-                        <button style={{backgroundColor: getRandomColor()}} onClick={(e) => {this.validateNote()}}></button>
+                    <Link to={`/board/${this.props.match.params.user}`} 
+                        className='validate-button' style={{backgroundColor: getRandomColor()}}
+                        onClick={(e) => {this.validateNote()}}>
+                        
+                            <img src='src/assets/icons/check.png'/>
+                        
                     </Link>
                 </div>
             </div>
