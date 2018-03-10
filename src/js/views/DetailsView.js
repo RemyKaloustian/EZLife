@@ -100,7 +100,7 @@ class DetailsView extends Component{
                                 })
                         }  
                         
-                        <p>done</p>
+                        <p className='details-separator'  style={{borderBottomColor: getRandomColor()}}></p>
                         {
                             this.props.notes[this.state.index].subtasks.map((sub, subindex)=>{
                                 if(sub.done){
