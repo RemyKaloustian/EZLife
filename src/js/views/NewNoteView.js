@@ -46,7 +46,7 @@ class NewNoteView extends Component{
                      <h3 className='header-title'>New note for {this.props.match.params.user}</h3>
                 </div>
                 <div className='page-content flex-column'>
-                    <input  placeholder="Your note" className='full-input'
+                    <input  placeholder="Your note" className='full-input input'
                         onChange = {(e)=>this.handleChange(e)}
                         onKeyPress={this.handleKeyPress}/>
                     <br/>

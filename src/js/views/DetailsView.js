@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import {addSubTask} from '../actions';
 import SubTask from '../components/SubTask';
 import {getRandomColor} from '../utils/colors';
-
+import '../../css/details.css';
 let self;
 class DetailsView extends Component{
     constructor(props){
@@ -46,13 +46,15 @@ class DetailsView extends Component{
                     <h3 className='header-title'>{this.props.match.params.note}</h3>
                 </div>
                 <div className='page-content alternative-content'>
+                <div className='details-input'>
                     <input placeholder="new subtask" 
+                        className='inline-input input'
                         onChange={(e)=>this.handleInputChange(e)} 
                         ref={el => this.inputVal = el}
                         onKeyPress={this.handleKeyPress}/>
-
-                    <button onClick= {() => this.addSub()}>Add subtask</button>
-
+                    <img src='src/assets/icons/check.png' className='validate-subtask-icon' style={{backgroundColor: getRandomColor()}}
+                        onClick={()=> this.addSub()}/>
+                </div>
                     {
                         this.props.notes[this.state.index].subtasks.map((sub, subindex)=>
                                         <SubTask key={subindex} name={sub.name} done={sub.done} index={this.state.index} subindex ={subindex}></SubTask>)

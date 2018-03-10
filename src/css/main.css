@@ -58,6 +58,8 @@ a
 .alternative-content
 {
     margin-left: 5%;
+    margin-right: 5%;
+    
 }
 
 .flex-column
@@ -74,14 +76,18 @@ a
     justify-content: space-evenly;
 }
 
-
-
-.full-input
+.input
 {
-    width:100%;
     border: none;
     height:100px;
     font-size: 2rem;
     font-family: gotham-light;
     padding-left: 20px;
+}
+
+
+
+.full-input
+{
+    width:100%;
 }

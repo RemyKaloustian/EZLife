@@ -1,0 +1,28 @@
+.inline-input
+{
+    //width:80%;
+
+}
+.details-input
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.details-input input
+{
+    flex-grow: 2;
+}
+
+.validate-subtask-icon
+{   
+    width:80px;
+    height: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+    
+}
