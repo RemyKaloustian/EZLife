@@ -6,22 +6,26 @@ import {browserHistory} from 'react-router';
 import BoardTask from '../components/BoardTask';
 import '../../css/board.css';
 import {getRandomColor} from '../utils/colors';
+
 const DISPLAY_COLUMN = 'flex-column';
 const DISPLAY_ROW = 'flex-row';
+const DISPLAY_COLUMN_ICON = 'src/assets/icons/columns.png';
+const DISPLAY_ROW_ICON = 'src/assets/icons/rows.png';
 
 class BoardView extends Component{
 
     constructor(props) {
         super(props);
-        this.state = {display:DISPLAY_COLUMN};
+        this.state = {display:DISPLAY_COLUMN, displayIcon:DISPLAY_ROW_ICON};
     }
 
     changeDisplay(){
         if(this.state.display === DISPLAY_COLUMN){
-            this.setState({display: DISPLAY_ROW});
+            this.setState({display: DISPLAY_ROW, displayIcon:DISPLAY_COLUMN_ICON});
+            
         }
         else if(this.state.display === DISPLAY_ROW){
-            this.setState({display:DISPLAY_COLUMN});
+            this.setState({display:DISPLAY_COLUMN, displayIcon:DISPLAY_ROW_ICON});
         }
     }
 
@@ -55,7 +59,7 @@ class BoardView extends Component{
                 </div>
 
                 <div className='fixed-bottom' style={{backgroundColor: getRandomColor()}}>
-                    <img src='src/assets/icons/rows.png' onClick={()=> this.changeDisplay()}/>
+                    <img src={this.state.displayIcon} onClick={()=> this.changeDisplay()}/>
                     <img src='src/assets/icons/add.png' onClick={()=> this.toNewNote()}/>
                 </div>
             </div>
