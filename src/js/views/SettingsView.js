@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import Link from 'react-router-dom/Link';
 
+import {getRandomColor} from '../utils/colors';
+
 class SettingsView extends Component{
     render(){
         return (
             <div>
-            <div className='header-panel'>
+            <div className='header-panel' style={{backgroundColor: getRandomColor()}}>
                 <h3 className='header-title'>Settings view</h3>
             </div>
                 <div className='page-content alternative-content'>

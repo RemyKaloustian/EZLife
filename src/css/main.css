@@ -21,6 +21,8 @@ a
     position: fixed;
     top:0;
     font-family: gotham-bold-italic;
+    padding-top: 20px;
+    padding-bottom: 6px;
 }
 
 .header-title
@@ -50,6 +52,7 @@ a
 .page-content
 {
     margin-top: 14%;
+    font-family: gotham-light;
 }
 
 .alternative-content
