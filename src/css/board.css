@@ -1,7 +1,15 @@
 .header-panel-board
 {
     display: flex;
-    justify-content:space-around;
+    justify-content:space-evenly;
+    padding-top: 20px;
+    padding-bottom: 6px;
+}
+
+.header-panel-board img
+{
+    width:15%;
+    transform: translateX(100%);
 }
 
 button

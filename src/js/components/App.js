@@ -10,7 +10,7 @@ import AddCounter from './AddCounter';
 import RemoveCounter from './RemoveCounter';
 import ListDisplayer from './ListDisplayer';
 import LoginView from '../views/LoginView';
-import Board from '../views/Board';
+import BoardView from '../views/BoardView';
 import SettingsView from '../views/SettingsView';
 import DetailsView from '../views/DetailsView';
 import NewNoteView from '../views/NewNoteView';
@@ -25,7 +25,7 @@ export const App = () => {
         <div>            
             <Switch>
               <Route path="/login" component={LoginView}> </Route>
-              <Route path="/board/:user" component={Board}></Route>  
+              <Route path="/board/:user" component={BoardView}></Route>  
               <Route path="/settings/:user" component={SettingsView}></Route>
               <Route path="/details/:user/:note" component={DetailsView}></Route>
               <Route path="/new/:user" component={NewNoteView}></Route>

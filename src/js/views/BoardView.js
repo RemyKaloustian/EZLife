@@ -7,7 +7,7 @@ import {getRandomColor} from '../utils/colors';
 const DISPLAY_COLUMN = 'flex-column';
 const DISPLAY_ROW = 'flex-row';
 
-class Board extends Component{
+class BoardView extends Component{
 
     constructor(props) {
         super(props);
@@ -32,7 +32,7 @@ class Board extends Component{
                 <div className='header-panel header-panel-board' style={{backgroundColor: getRandomColor()}}>
                     <h3>📋{this.props.match.params.user}'s board</h3>
                     <Link to={`/settings/${this.props.match.params.user}`}>
-                        <button>Settings</button>
+                        <img src='src/assets/icons/gear.png'/>
                     </Link>
                     
                 </div>
@@ -69,4 +69,4 @@ function mapStateToProps(state){
     };
   }
 
-  export default connect(mapStateToProps)(Board);
+  export default connect(mapStateToProps)(BoardView);
