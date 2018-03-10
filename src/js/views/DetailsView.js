@@ -34,6 +34,10 @@ class DetailsView extends Component{
             self.addSub();
         }
     }
+
+    toBoard(){
+        this.props.history.push(`/board/${this.props.match.params.user}`);
+    }
     render(){      
         return(
             <div>
@@ -53,10 +57,11 @@ class DetailsView extends Component{
                         this.props.notes[this.state.index].subtasks.map((sub, subindex)=>
                                         <SubTask key={subindex} name={sub.name} done={sub.done} index={this.state.index} subindex ={subindex}></SubTask>)
 
-                    }
-                    <Link to={`/board/${this.props.match.params.user}`}>
-                        <button>Back</button>
-                    </Link>
+                    }                   
+                </div>
+
+                <div className='fixed-bottom' style={{backgroundColor: getRandomColor()}}>
+                    <img src='src/assets/icons/back.png' onClick={()=> this.toBoard()}/>
                 </div>
             </div>
         );
