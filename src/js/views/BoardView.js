@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Link from 'react-router-dom/Link';
+import {browserHistory} from 'react-router';
+
 import BoardTask from '../components/BoardTask';
 import '../../css/board.css';
 import {getRandomColor} from '../utils/colors';
@@ -21,6 +23,10 @@ class BoardView extends Component{
         else if(this.state.display === DISPLAY_ROW){
             this.setState({display:DISPLAY_COLUMN});
         }
+    }
+
+    toNewNote(){
+       this.props.history.push(`/new/${this.props.match.params.user}`);
     }
     
 
@@ -48,13 +54,9 @@ class BoardView extends Component{
                 }
                 </div>
 
-                <div className='fixed-bottom'>
-               
-                    <button onClick={()=> this.changeDisplay()}>Layout</button>
-                    <Link to={`/new/${this.props.match.params.user}`}>
-                        <button>Add note</button>
-                    </Link>
-                
+                <div className='fixed-bottom' style={{backgroundColor: getRandomColor()}}>
+                    <img src='src/assets/icons/rows.png' onClick={()=> this.changeDisplay()}/>
+                    <img src='src/assets/icons/add.png' onClick={()=> this.toNewNote()}/>
                 </div>
             </div>
         );
