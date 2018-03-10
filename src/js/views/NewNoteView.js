@@ -1,13 +1,17 @@
+// Module imports
 import React, {Component} from 'react';
 import Link from 'react-router-dom/Link';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
-
-import { addNote } from '../actions';
 import { bindActionCreators } from 'redux';
+
+// File imports
+import { addNote } from '../actions';
 import { getRandomColor } from '../utils/colors';
 import '../../css/newnote.css';
-let self ;
+
+let self ;//Is used so we can have access to this.setState() in functions with events params
+//The view displayed when we create a new note
 class NewNoteView extends Component{
 
     constructor(){
@@ -29,13 +33,12 @@ class NewNoteView extends Component{
 
     validateNote(){
         if(this.state.note.trim().length > 0){
-            console.log("Adding for " + this.state.note);
-            
             this.props.dispatch(addNote(this.state.note));
         }
     }
 
     render(){
+        //If we pressed enter, we go to the board
         if(this.state.isEnterPressed){
             return <Redirect push to={`/board/${this.props.match.params.user}`}></Redirect>
         }
@@ -46,16 +49,16 @@ class NewNoteView extends Component{
                      <h3 className='header-title'>New note for {this.props.match.params.user}</h3>
                 </div>
                 <div className='page-content flex-column'>
+                   
                     <input  placeholder="Your note" className='full-input input'
-                        onChange = {(e)=>this.handleChange(e)}
-                        onKeyPress={this.handleKeyPress}/>
+                            onChange = {(e)=>this.handleChange(e)}
+                            onKeyPress={this.handleKeyPress}/>
                     <br/>
+
                     <Link to={`/board/${this.props.match.params.user}`} 
-                        className='validate-button' style={{backgroundColor: getRandomColor()}}
-                        onClick={(e) => {this.validateNote()}}>
-                        
-                            <img src='src/assets/icons/check.png'/>
-                        
+                            className='validate-button' style={{backgroundColor: getRandomColor()}}
+                            onClick={(e) => {this.validateNote()}}>
+                            <img src='src/assets/icons/check.png'/>                        
                     </Link>
                 </div>
             </div>
