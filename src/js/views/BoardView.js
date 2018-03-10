@@ -1,8 +1,10 @@
+// Module imports
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Link from 'react-router-dom/Link';
 import {browserHistory} from 'react-router';
 
+// File imports
 import BoardTask from '../components/BoardTask';
 import '../../css/board.css';
 import {getRandomColor} from '../utils/colors';
@@ -12,10 +14,12 @@ const DISPLAY_ROW = 'flex-row';
 const DISPLAY_COLUMN_ICON = 'src/assets/icons/columns.png';
 const DISPLAY_ROW_ICON = 'src/assets/icons/rows.png';
 
+//The view displayed at /board/username
 class BoardView extends Component{
 
     constructor(props) {
         super(props);
+        //Getting the display back from storage #smoothuserexperience
         if(localStorage.getItem('display') != null){
             this.state = {display:localStorage.getItem('display'), displayIcon:DISPLAY_ROW_ICON};
         }
@@ -30,8 +34,7 @@ class BoardView extends Component{
         }
         else if(this.state.display === DISPLAY_ROW){
             this.setState({display:DISPLAY_COLUMN, displayIcon:DISPLAY_ROW_ICON});
-        }
-        
+        }        
     }
 
     toNewNote(){
@@ -40,15 +43,15 @@ class BoardView extends Component{
     
 
     render(){
+        //Saving the display
         localStorage.setItem('display', this.state.display);
         return(
             <div >
                 <div className='header-panel header-panel-board' style={{backgroundColor: getRandomColor()}}>
-                    <h3>📋{this.props.match.params.user}'s board</h3>
+                    <h3>📋{this.props.match.params.user}\'s board</h3>
                     <Link to={`/settings/${this.props.match.params.user}`}>
                         <img src='src/assets/icons/gear.png'/>
-                    </Link>
-                    
+                    </Link>                    
                 </div>
               
                <div className={`page-content ${this.state.display}`}>
@@ -57,7 +60,7 @@ class BoardView extends Component{
                         <BoardTask user={this.props.match.params.user}
                             item = {item}
                             index={index}
-                        ></BoardTask>
+                        />
                     )
                 }
                 </div>
